@@ -682,10 +682,10 @@ function update() {
     const resultEl = document.getElementById('result');
        
     if (diff > 0) {
-        // LEFT tem mais valor: RIGHT precisa pagar para LEFT
+        // LEFT tem MAIS valor: RIGHT precisa PAGAR para LEFT
         resultEl.innerHTML = `<span class='win'>LEFT WINS: RIGHT pays ${diff.toLocaleString()}</span>`;
     } else if (diff < 0) {
-        // RIGHT tem mais valor: LEFT precisa pagar para RIGHT
+        // RIGHT tem MAIS valor: LEFT precisa PAGAR para RIGHT
         resultEl.innerHTML = `<span class='loss'>LEFT LOSES: pays ${Math.abs(diff).toLocaleString()} to RIGHT</span>`;
     } else {
         resultEl.innerHTML = `<span class='fair'>FAIR TRADE</span>`;
