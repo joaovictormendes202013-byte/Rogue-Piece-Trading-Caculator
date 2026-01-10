@@ -685,13 +685,13 @@ function update() {
         // Valores iguais: Fair
         resultEl.innerHTML = `<span class='fair'>Fair</span>`;
     } else if (leftTotal > rightTotal) {
-        // Left tem MAIS: Left perde (tem que pagar)
+        // Left tem MAIS: Left ganha (W)
         const diff = leftTotal - rightTotal;
-        resultEl.innerHTML = `<span class='loss'>L ${diff.toLocaleString()}</span>`;
-    } else {
-        // Left tem MENOS: Left ganha (recebe pagamento)
-        const diff = rightTotal - leftTotal;
         resultEl.innerHTML = `<span class='win'>W ${diff.toLocaleString()}</span>`;
+    } else {
+        // Left tem MENOS: Left perde (L)
+        const diff = rightTotal - leftTotal;
+        resultEl.innerHTML = `<span class='loss'>L ${diff.toLocaleString()}</span>`;
     }
 }
 
