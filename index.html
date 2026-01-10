@@ -681,14 +681,16 @@ function update() {
     const diff = leftTotal - rightTotal;
     const resultEl = document.getElementById('result');
        
-    if (diff > 0) {
-        // LEFT tem MAIS valor: RIGHT precisa PAGAR para LEFT
-        resultEl.innerHTML = `<span class='win'>LEFT WINS: RIGHT pays ${diff.toLocaleString()}</span>`;
-    } else if (diff < 0) {
-        // RIGHT tem MAIS valor: LEFT precisa PAGAR para RIGHT
-        resultEl.innerHTML = `<span class='loss'>LEFT LOSES: pays ${Math.abs(diff).toLocaleString()} to RIGHT</span>`;
+    if (diff >= 0) {
+        // LEFT tem MAIS ou IGUAL valor: Justo para LEFT (ganha ou empata)
+        if (diff > 0) {
+            resultEl.innerHTML = `<span class='win'>FAIR FOR LEFT: Wins ${diff.toLocaleString()}</span>`;
+        } else {
+            resultEl.innerHTML = `<span class='fair'>PERFECTLY FAIR TRADE</span>`;
+        }
     } else {
-        resultEl.innerHTML = `<span class='fair'>FAIR TRADE</span>`;
+        // LEFT tem MENOS valor: Injusto para LEFT (perde)
+        resultEl.innerHTML = `<span class='loss'>UNFAIR FOR LEFT: Loses ${Math.abs(diff).toLocaleString()}</span>`;
     }
 }
 
